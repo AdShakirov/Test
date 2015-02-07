@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Birdman typo</title>
+<link href="reset.css" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+<script src="jquery-2.1.3.min.js"></script>
+<script src="jquery.color-2.1.2.min.js"></script>
+</head>
+  <body>
+  	<div id="fadeintext">
+  	<div class="cont">
+<p class="txt">—Would you tell me, please, which way I ought to go from here?</p>
+<p class="txt">—That depends a good deal on where you want to get to.</p>
+<p class="txt">—I don't much care where</p> 
+<p class="txt">—Then it doesn't matter which way you go.</p>
+<p class="name"> Lewis Carroll</p>
+	</div>
+  	</div>
+
+
+  	<script>
+
+   
+  	var Ctx = document.getElementsByClassName("txt");
+    var NewString;
+
+    for (i=0;i<Ctx.length;i++) {
+
+
+      NewString=" ";
+
+      var OriginalString = Ctx[i].innerHTML;
+
+        for (j=0;j<OriginalString.length;j++) {
+
+        NewString=NewString+"<span>"+OriginalString[j]+"</span>";
+
+      }
+      Ctx[i].innerHTML=NewString;
+      
+    }
+
+    var TypeDelay=500;
+
+  $(document).ready(function(){ 
+
+  
+  for (i=0;i<Ctx.length;i++) {
+
+  $('p:eq('+i+') span:nth-child(5n)').delay(TypeDelay).animate({opacity:1});
+  $('p:eq('+i+')').animate({color: '#ee3823'});
+  $('p:eq('+i+') span:nth-child(3n)').delay(TypeDelay+1500).animate({opacity:1});
+  $('p:eq('+i+') span:nth-child(3n+1)').delay(TypeDelay+3000).animate({opacity:1});
+  $('p:eq('+i+') span:nth-child(2n)').delay(TypeDelay+4500).animate({opacity:1});
+  $('p:eq('+i+') span:nth-child(2n+1)').delay(TypeDelay+5000).animate({opacity:1});
+  $('p:eq('+i+')').delay(TypeDelay+5000).animate({color:'#ffffff'},0);
+
+  TypeDelay=TypeDelay+5000;
+
+
+}
+  $('p.name').delay(TypeDelay+500).animate({opacity:1});
+
+
+
+
+ 
+
+
+});
+  	</script>
+
+  </body>
+</html>
